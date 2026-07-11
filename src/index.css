@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+@import 'tailwindcss';
+
+@theme inline {
+  --font-orbitron: 'Orbitron', sans-serif;
+  --font-sans: 'DM Sans', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+:root {
+  --bg: #050714;
+  --bg-card: rgba(10, 14, 40, 0.85);
+  --blue: #00d4ff;
+  --pink: #ff0080;
+  --violet: #a855f7;
+  --text: #e8eaf6;
+  --muted: #6b7db3;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--blue); border-radius: 2px; }
+
+@keyframes neural-pulse {
+  0%, 100% { opacity: 0.15; }
+  50% { opacity: 0.45; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes letter-drop {
+  0% { opacity: 0; transform: translateY(-40px) rotateX(90deg); }
+  100% { opacity: 1; transform: translateY(0) rotateX(0deg); }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { text-shadow: 0 0 10px var(--blue), 0 0 20px var(--blue); }
+  50% { text-shadow: 0 0 20px var(--blue), 0 0 40px var(--blue), 0 0 60px var(--violet); }
+}
+
+@keyframes scan-line {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+@keyframes border-glow {
+  0%, 100% { border-color: var(--blue); box-shadow: 0 0 8px var(--blue); }
+  50% { border-color: var(--violet); box-shadow: 0 0 20px var(--violet); }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes dash {
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes node-ping {
+  0%, 100% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.5); opacity: 1; }
+}
+
+.letter-animate {
+  display: inline-block;
+  opacity: 0;
+  animation: letter-drop 0.5s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+.fade-up {
+  opacity: 0;
+  animation: fade-up 0.7s ease forwards;
+}
+
+.glow-text {
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+.neon-border {
+  animation: border-glow 3s ease-in-out infinite;
+}
+
+.float-icon {
+  animation: float 4s ease-in-out infinite;
+}
+
+.skill-bar {
+  background: linear-gradient(90deg, var(--blue), var(--violet));
+  height: 3px;
+  border-radius: 2px;
+  transform-origin: left;
+  transition: transform 1s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card-hover:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(0, 212, 255, 0.15), 0 0 0 1px rgba(0, 212, 255, 0.2);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--blue), var(--violet));
+  color: #fff;
+  font-family: var(--font-orbitron);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  padding: 0.75rem 1.75rem;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+.btn-primary:hover { opacity: 0.85; transform: translateY(-2px); }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--blue);
+  font-family: var(--font-orbitron);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  padding: 0.65rem 1.5rem;
+  border: 1px solid var(--blue);
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+.btn-ghost:hover { background: rgba(0, 212, 255, 0.1); }
+
+.section-label {
+  font-family: var(--font-orbitron);
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  color: var(--blue);
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.section-label::before, .section-label::after {
+  content: '';
+  display: block;
+  height: 1px;
+  width: 40px;
+  background: linear-gradient(90deg, var(--blue), transparent);
+}
+
+.section-title {
+  font-family: var(--font-orbitron);
+  font-weight: 800;
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  background: linear-gradient(135deg, #fff 30%, var(--violet));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0.5rem 0 1.5rem;
+}

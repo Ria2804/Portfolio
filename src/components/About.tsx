@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import profile from '../../RJ.jpg'
+import profile from '../RJ.jpg'
 
 export default function About() {
   const ref = useRef<HTMLElement>(null)

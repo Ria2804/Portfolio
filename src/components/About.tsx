@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import profile from '../../RJ.jpg'
 
 export default function About() {
   const ref = useRef<HTMLElement>(null)
@@ -61,7 +62,7 @@ export default function About() {
             }}
           >
             <img
-              src="RJ.jpg"
+              src={profile}
               alt="Riya Joji — AI/ML Graduate"
               style={{ width: '100%', height: '100%', objectFit: 'cover' }}
             />
